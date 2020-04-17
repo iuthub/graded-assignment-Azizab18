@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', array(
+      'uses'=>'TaskController@getMain',
+      'as'=>'main'
+));
+
+Route::get('/login', array(
+      'uses'=>'AuthController@getLogin',
+      'as'=>'login'
+));
+
+Route::post('/login', array(
+      'uses'=>'AuthController@postLogin',
+      'as'=>'login'
+));
